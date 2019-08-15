@@ -45,6 +45,7 @@ public class CTPicker {
             presentingVc.items = items
             presentingVc.selectedTextField = textField
             presentingVc.isAddEnabled = isAddEnabled
+            presentingVc.navBarBarTintColor = navBarBarTintColor
             presentingVc.navBarTintColor = navBarTintColor
             presentingVc.actionTintColor = actionTintColor
             if let vC = vC as? CTPickerDelegate {
