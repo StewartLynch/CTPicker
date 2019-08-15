@@ -20,7 +20,6 @@ public class CTPicker {
         ///     - items: An array of strings representing the choices for this type.
         ///     - navBarBarTintColor: Optional color of the navigation bar background.
         ///     - navBarTintColor: Optional tintcolor for the navigation bar buttons.
-        ///     - navBartitleTextColor: Optional color for the navigation bar title.
         ///     - actionTintColor: Optional color for the Alert action buttons.
         ///     - isAddEnabled: False by default.  If True, allows for adding items to items array.
 
@@ -33,22 +32,20 @@ public class CTPicker {
         /// // default -  not changing any colors as all are optional, winery array is read only
         ///  CTPicker.presentCTPicker( on: self, textField: textField, items: wineryArray)
         /// // All navBar Colors changed and winery array can be added to
-        ///  CTPicker.presentCTPicker(on: self, textField: textField, items: wineryArray, navBarBarTintColor: .blue, navBarTintColor: .white, navBartitleTextColor: .cyan, actionTintColor: .green, isAddEnabled: true)
+        ///  CTPicker.presentCTPicker(on: self, textField: textField, items: wineryArray, navBarBarTintColor: .blue, navBarTintColor: .white, actionTintColor: .green, isAddEnabled: true)
         /// // Changing only tint color of the picker navBar.  Winery Array is read only
         ///  CTPicker.presentCTPicker(on: self, textField: textField, items: wineryArray, navBarTintColor: .red)
         ///
        
         /// ```
         
-        static public func presentCTPicker(on vC:UIViewController, textField:UITextField, items:[String], navBarBarTintColor:UIColor? = nil, navBarTintColor:UIColor? = nil, navBartitleTextColor:UIColor? = nil, actionTintColor:UIColor? = nil, isAddEnabled:Bool = false ) {
+        static public func presentCTPicker(on vC:UIViewController, textField:UITextField, items:[String], navBarBarTintColor:UIColor? = nil, navBarTintColor:UIColor? = nil, actionTintColor:UIColor? = nil, isAddEnabled:Bool = false ) {
             let presentingVc = CTPickerParentViewController()
             presentingVc.containerVC = CTPickerChildViewController()
             presentingVc.items = items
             presentingVc.selectedTextField = textField
             presentingVc.isAddEnabled = isAddEnabled
             presentingVc.navBarTintColor = navBarTintColor
-            presentingVc.navBarBarTintColor = navBarBarTintColor
-            presentingVc.navBartitleTextColor = navBartitleTextColor
             presentingVc.actionTintColor = actionTintColor
             if let vC = vC as? CTPickerDelegate {
                 presentingVc.delegate = vC

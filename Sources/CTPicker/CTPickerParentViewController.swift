@@ -20,7 +20,6 @@ public class CTPickerParentViewController: UIViewController {
     // Optional Colors for Navbar and alert button if required
     var navBarBarTintColor:UIColor?
     var navBarTintColor:UIColor?
-    var navBartitleTextColor:UIColor?
     var actionTintColor:UIColor?
     var isAddEnabled:Bool!
     var selectedTextField:UITextField!
@@ -43,7 +42,6 @@ public class CTPickerParentViewController: UIViewController {
         childVC.isAddEnabled = isAddEnabled
         childVC.navBarTintColor = navBarTintColor
         childVC.navBarBarTintColor = navBarBarTintColor
-        childVC.navBartitleTextColor = navBartitleTextColor
         childVC.actionTintColor = actionTintColor
         childVC.searchTitle = searchTitle
         addChild(navVC)

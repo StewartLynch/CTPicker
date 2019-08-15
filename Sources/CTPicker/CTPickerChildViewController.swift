@@ -21,7 +21,6 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     // Optional Navbar Colors
     var navBarBarTintColor:UIColor?
     var navBarTintColor:UIColor?
-    var navBartitleTextColor:UIColor?
     var actionTintColor:UIColor?
     
     var originalItemsList:[String] = []
@@ -110,9 +109,6 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
         }
         if let navBarBarTintColor = navBarBarTintColor {
             navigationBarAppearance.barTintColor = navBarBarTintColor
-        }
-        if let navBartitleTextColor = navBartitleTextColor {
-            navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : navBartitleTextColor]
         }
         
         self.navigationItem.title = searchTitle

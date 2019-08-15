@@ -109,7 +109,6 @@ func textFieldDidBeginEditing(_ textField: UITextField) {
                     items: wineryArray,
                     navBarBarTintColor: .black,
                     navBarTintColor: .white,
-                    navBartitleTextColor: .white,
                     actionTintColor: .black,
                     isAddEnabled: true)
   default:
