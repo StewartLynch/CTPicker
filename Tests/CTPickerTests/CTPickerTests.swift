@@ -6,7 +6,7 @@ final class CTPickerTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(CTPicker().text, "Hello, World!")
+//        XCTAssertEqual(CTPicker().text, "Hello, World!")
     }
 
     static var allTests = [
