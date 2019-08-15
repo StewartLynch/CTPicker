@@ -72,7 +72,7 @@ public class CTPickerParentViewController: UIViewController {
     }
 }
 
-
+@available(iOS 12.0, *)
 extension CTPickerParentViewController: CTPickerChildDelegate {
     public func setValue(value: String, new: Bool) {
         dismiss(animated:true)
