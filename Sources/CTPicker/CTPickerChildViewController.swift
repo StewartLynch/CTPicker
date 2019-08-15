@@ -82,6 +82,7 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        instrLabel.text = isAddEnabled ? "Tap on a line to select, or tap '+' to add a new entry." : "Tap on a line to select."
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         setupView()
         tableView.delegate = self
@@ -186,7 +187,7 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     }
     
     @objc func addItem() {
-        let ac = UIAlertController(title: "Enter new \(searchTitle ?? "item")", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Enter new item", message: nil, preferredStyle: .alert)
         ac.addTextField(configurationHandler: {(textField: UITextField!) in
             textField.keyboardType = UIKeyboardType.default
             textField.autocapitalizationType = .words
