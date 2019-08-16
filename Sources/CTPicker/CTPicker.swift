@@ -48,11 +48,11 @@ public class CTPicker {
             self.addBtnTitle = addBtnTitle
             self.cancelBtnTitle = cancelBtnTitle
         }
-        var pickText:String = "Tap on a line to select."
-        var addText:String = "Tap '+' to add a new entry."
-        var addAlertTitle:String = "Add new item"
-        var addBtnTitle:String = "Add"
-        var cancelBtnTitle:String = "Cancel"
+        public var pickText:String = "Tap on a line to select."
+        public var addText:String = "Tap '+' to add a new entry."
+        public var addAlertTitle:String = "Add new item"
+        public var addBtnTitle:String = "Add"
+        public var cancelBtnTitle:String = "Cancel"
     }
         
     static public func presentCTPicker(on vC:UIViewController, textField:UITextField, items:[String],ctStrings:CTPicker.CTStrings? = nil, navBarBarTintColor:UIColor? = nil, navBarTintColor:UIColor? = nil, actionTintColor:UIColor? = nil, isAddEnabled:Bool = false ) {
