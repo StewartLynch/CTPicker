@@ -149,6 +149,7 @@ The first allows you to pass a set of string values that will override  the defa
 ```swift
   let ctStrings = CTPicker.CTStrings(pickText: "Tap on a line to select.",
                                      addText: "Tap '+' to add a new entry.",
+                                     searchPlaceHolder: "Filter by entering text...",
                                      addAlertTitle: "Add new item",
                                      addBtnTitle: "Add",
                                      cancelBtnTitle: "Cancel")
@@ -181,6 +182,7 @@ Here is an example of a CTPicker.presentCTPicker call using all options.
 ```swift
  let ctStrings = CTPicker.CTStrings(pickText: "Lorem ipsum dolor sit amet.",
                                     addText: "Consectetur adipiscing elit.",
+                                    searchPlaceHolder: "Vivamus ut dignissim dui...",
                                     addAlertTitle: "Excepteur sint occaecat",
                                     addBtnTitle: "Anim",
                                     cancelBtnTitle: "Sund")
