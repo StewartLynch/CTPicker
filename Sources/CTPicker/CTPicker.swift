@@ -18,6 +18,7 @@ public class CTPicker {
         ///     - vC: The calling viewController, normally 'self'.
         ///     - textField:  The UITextfield that is being edited, normally just 'textField'
         ///     - items: An array of strings representing the choices for this type.
+        ///     - ctStrings: optional localized text strings.
         ///     - navBarBarTintColor: Optional color of the navigation bar background.
         ///     - navBarTintColor: Optional tintcolor for the navigation bar buttons.
         ///     - actionTintColor: Optional color for the Alert action buttons.
@@ -39,10 +40,11 @@ public class CTPicker {
        
         /// ```
         
-        static public func presentCTPicker(on vC:UIViewController, textField:UITextField, items:[String], navBarBarTintColor:UIColor? = nil, navBarTintColor:UIColor? = nil, actionTintColor:UIColor? = nil, isAddEnabled:Bool = false ) {
+    static public func presentCTPicker(on vC:UIViewController, textField:UITextField, items:[String],ctStrings:CTPickerStrings? = nil, navBarBarTintColor:UIColor? = nil, navBarTintColor:UIColor? = nil, actionTintColor:UIColor? = nil, isAddEnabled:Bool = false ) {
             let presentingVc = CTPickerParentViewController()
             presentingVc.containerVC = CTPickerChildViewController()
             presentingVc.items = items
+            presentingVc.ctStrings = ctStrings
             presentingVc.selectedTextField = textField
             presentingVc.isAddEnabled = isAddEnabled
             presentingVc.navBarBarTintColor = navBarBarTintColor

@@ -1,6 +1,6 @@
 //
-//  ACParentViewController.swift
-//  AutoCompletModal
+//  CTPickerChildViewController.swift
+//  CTPicker
 //
 //  Created by Stewart Lynch on 8/2/19.
 //  Copyright © 2019 Stewart Lynch. All rights reserved.
@@ -24,7 +24,7 @@ public class CTPickerParentViewController: UIViewController {
     var isAddEnabled:Bool!
     var selectedTextField:UITextField!
     var items:[String] = []
-    var searchTitle:String = ""
+    var ctStrings:CTPickerStrings?
     weak var delegate:CTPickerDelegate?
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +38,12 @@ public class CTPickerParentViewController: UIViewController {
         let navVC = UINavigationController(rootViewController: childVC)
         childVC.delegate = self
         childVC.items = items
+        childVC.ctStrings = ctStrings
         childVC.currentItem = selectedTextField.text
         childVC.isAddEnabled = isAddEnabled
         childVC.navBarTintColor = navBarTintColor
         childVC.navBarBarTintColor = navBarBarTintColor
         childVC.actionTintColor = actionTintColor
-        childVC.searchTitle = searchTitle
         addChild(navVC)
         navVC.view.frame = .zero
         view.addSubview(navVC.view)

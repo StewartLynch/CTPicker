@@ -1,6 +1,6 @@
 //
-//  ACViewController.swift
-//  AutoCompletModal
+//  CTPickerChildViewController.swift
+//  CTPicker
 //
 //  Created by Stewart Lynch on 8/2/19.
 //  Copyright © 2019 Stewart Lynch. All rights reserved.
@@ -18,13 +18,14 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     
     weak var delegate:CTPickerChildDelegate?
     var items:[String] = []
+    var ctStrings:CTPickerStrings?
+    var pickerStrings:CTPickerStrings = CTPickerStrings()
     // Optional Navbar Colors
     var navBarBarTintColor:UIColor?
     var navBarTintColor:UIColor?
     var actionTintColor:UIColor?
     
     var originalItemsList:[String] = []
-    var searchTitle:String?
     var currentItem:String?
     var isAddEnabled:Bool!
     
@@ -49,7 +50,6 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     var instrLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
-        label.text = "Tap on a line to select, or tap '+' to add a new entry."
         label.numberOfLines = 2
         return label
     }()
@@ -82,7 +82,10 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        instrLabel.text = isAddEnabled ? "Tap on a line to select, or tap '+' to add a new entry." : "Tap on a line to select."
+        if let ctStrings = ctStrings {
+            pickerStrings = ctStrings
+        }
+        instrLabel.text = isAddEnabled ? "\(pickerStrings.pickText) \(pickerStrings.addText)" : pickerStrings.pickText
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         setupView()
         tableView.delegate = self
@@ -112,11 +115,9 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
             navigationBarAppearance.barTintColor = navBarBarTintColor
         }
         
-        self.navigationItem.title = searchTitle
         navigationItem.setLeftBarButton(UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel)), animated: true)
         
         if isAddEnabled {
-            self.navigationItem.title = searchTitle
             navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addItem)), animated: true)
         }
     }
@@ -187,7 +188,7 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     }
     
     @objc func addItem() {
-        let ac = UIAlertController(title: "Enter new item", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: pickerStrings.addAlertTitle, message: nil, preferredStyle: .alert)
         ac.addTextField(configurationHandler: {(textField: UITextField!) in
             textField.keyboardType = UIKeyboardType.default
             textField.autocapitalizationType = .words
@@ -196,13 +197,13 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
             }
         })
         
-        let submitAction = UIAlertAction(title: "Add", style: .default) { [unowned ac] _ in
+        let submitAction = UIAlertAction(title: pickerStrings.addBtnTitle, style: .default) { [unowned ac] _ in
             let answer = ac.textFields![0]
             if answer.text != "" {
                 self.delegate?.setValue(value: answer.text!, new: true)
             }
         }
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: pickerStrings.cancelBtnTitle, style: .cancel))
         ac.addAction(submitAction)
         if let actionTintColor = actionTintColor {
             ac.view.tintColor = actionTintColor
