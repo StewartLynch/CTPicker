@@ -22,7 +22,7 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
 
     var pickerStrings:CTPicker.CTStrings = CTPicker.CTStrings(pickText: "Tap on a line to select.",
                                                               addText: "Tap '+' to add a new entry.",
-                                                              searchPlaceholder: "Filter by entering text...",
+                                                              searchPlaceHolder: "Filter by entering text...",
                                                               addAlertTitle: "Add new item",
                                                               addBtnTitle: "Add",
                                                               cancelBtnTitle: "Cancel")
