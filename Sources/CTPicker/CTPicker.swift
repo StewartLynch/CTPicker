@@ -41,13 +41,13 @@ public class CTPicker {
         /// ```
     
     public class CTStrings {
-        internal init(pickerText:String, addText:String, addAlertTitle:String, addBtnTitle:String, addAlertTitle:String) {
-            self.pickText = pickerText
-            self.addText = addText
-            self.addAlertTitle = addAlertTitle
-            self.addBtnTitle = addBtnTitle
-            self.cancelBtnTitle = cancelBtnTitle
-        }
+//        internal init(pickerText:String, addText:String, addAlertTitle:String, addBtnTitle:String, cancelBtnTitle:String) {
+//            self.pickText = pickerText
+//            self.addText = addText
+//            self.addAlertTitle = addAlertTitle
+//            self.addBtnTitle = addBtnTitle
+//            self.cancelBtnTitle = cancelBtnTitle
+//        }
         public var pickText:String = "Tap on a line to select."
         public var addText:String = "Tap '+' to add a new entry."
         public var addAlertTitle:String = "Add new item"
