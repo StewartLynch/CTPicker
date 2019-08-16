@@ -11,9 +11,9 @@ import Foundation
 
 @available(iOS 12.0, *)
 public struct CTPickerStrings {
-    var pickText:String = "Tap on a line to select."
-    var addText:String = "Tap '+' to add a new entry."
-    var addAlertTitle:String = "Add new item"
-    var addBtnTitle:String = "Add"
-    var cancelBtnTitle:String = "Cancel"
+    public var pickText:String = "Tap on a line to select."
+    public var addText:String = "Tap '+' to add a new entry."
+    public var addAlertTitle:String = "Add new item"
+    public var addBtnTitle:String = "Add"
+    public var cancelBtnTitle:String = "Cancel"
 }
