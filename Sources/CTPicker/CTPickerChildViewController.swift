@@ -22,6 +22,7 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
 
     var pickerStrings:CTPicker.CTStrings = CTPicker.CTStrings(pickText: "Tap on a line to select.",
                                                               addText: "Tap '+' to add a new entry.",
+                                                              searchPlaceholder: "Filter by entering text...",
                                                               addAlertTitle: "Add new item",
                                                               addBtnTitle: "Add",
                                                               cancelBtnTitle: "Cancel")
@@ -45,7 +46,6 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
         txtField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         txtField.leftView = paddingView
         txtField.leftViewMode = .always
-        txtField.placeholder = "Filter by entering text..."
         txtField.font = UIFont.systemFont(ofSize: 17)
         txtField.clearButtonMode = .whileEditing
         txtField.layer.cornerRadius = 10
@@ -91,6 +91,7 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
             pickerStrings = ctStrings
         }
         instrLabel.text = isAddEnabled ? "\(pickerStrings.pickText) \(pickerStrings.addText)" : pickerStrings.pickText
+        txtSearchBar.placeholder = pickerStrings.searchPlaceHolder
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         setupView()
         tableView.delegate = self

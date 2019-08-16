@@ -43,13 +43,15 @@ public class CTPicker {
     public class CTStrings {
         public var pickText:String
         public var addText:String
+        public var searchPlaceHolder:String
         public var addAlertTitle:String
         public var addBtnTitle:String
         public var cancelBtnTitle:String
         
-        public init(pickText:String, addText:String, addAlertTitle:String, addBtnTitle:String, cancelBtnTitle:String) {
+        public init(pickText:String, addText:String, searchPlaceHolder:String, addAlertTitle:String, addBtnTitle:String, cancelBtnTitle:String) {
             self.pickText = pickText
             self.addText = addText
+            self.searchPlaceHolder = searchPlaceHolder
             self.addAlertTitle = addAlertTitle
             self.addBtnTitle = addBtnTitle
             self.cancelBtnTitle = cancelBtnTitle
