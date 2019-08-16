@@ -39,8 +39,16 @@ public class CTPicker {
         ///
        
         /// ```
+    
+    public struct CTStrings {
+        var pickText:String = "Tap on a line to select."
+        var addText:String = "Tap '+' to add a new entry."
+        var addAlertTitle:String = "Add new item"
+        var addBtnTitle:String = "Add"
+        var cancelBtnTitle:String = "Cancel"
+    }
         
-    static public func presentCTPicker(on vC:UIViewController, textField:UITextField, items:[String],ctStrings:CTPickerStrings? = nil, navBarBarTintColor:UIColor? = nil, navBarTintColor:UIColor? = nil, actionTintColor:UIColor? = nil, isAddEnabled:Bool = false ) {
+    static public func presentCTPicker(on vC:UIViewController, textField:UITextField, items:[String],ctStrings:CTPicker.CTStrings? = nil, navBarBarTintColor:UIColor? = nil, navBarTintColor:UIColor? = nil, actionTintColor:UIColor? = nil, isAddEnabled:Bool = false ) {
             let presentingVc = CTPickerParentViewController()
             presentingVc.containerVC = CTPickerChildViewController()
             presentingVc.items = items

@@ -1,6 +1,6 @@
 //
-//  CTPickerChildViewController.swift
-//  CTPicker
+//  ACParentViewController.swift
+//  AutoCompletModal
 //
 //  Created by Stewart Lynch on 8/2/19.
 //  Copyright © 2019 Stewart Lynch. All rights reserved.
@@ -24,7 +24,7 @@ public class CTPickerParentViewController: UIViewController {
     var isAddEnabled:Bool!
     var selectedTextField:UITextField!
     var items:[String] = []
-    var ctStrings:CTPickerStrings?
+    var ctStrings:CTPicker.CTStrings?
     weak var delegate:CTPickerDelegate?
     override public func viewDidLoad() {
         super.viewDidLoad()

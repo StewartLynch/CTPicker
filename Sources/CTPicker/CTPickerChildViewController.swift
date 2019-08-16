@@ -1,6 +1,6 @@
 //
-//  CTPickerChildViewController.swift
-//  CTPicker
+//  ACViewController.swift
+//  AutoCompletModal
 //
 //  Created by Stewart Lynch on 8/2/19.
 //  Copyright © 2019 Stewart Lynch. All rights reserved.
@@ -18,8 +18,8 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     
     weak var delegate:CTPickerChildDelegate?
     var items:[String] = []
-    var ctStrings:CTPickerStrings?
-    var pickerStrings:CTPickerStrings = CTPickerStrings()
+    var ctStrings:CTPicker.CTStrings?
+    var pickerStrings:CTPicker.CTStrings = CTPicker.CTStrings()
     // Optional Navbar Colors
     var navBarBarTintColor:UIColor?
     var navBarTintColor:UIColor?
