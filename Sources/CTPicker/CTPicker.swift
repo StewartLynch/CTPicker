@@ -40,7 +40,14 @@ public class CTPicker {
        
         /// ```
     
-    public struct CTStrings {
+    public class CTStrings {
+        internal init(pickerText:String, addText:String, addAlertTitle:String, addBtnTitle:String, addAlertTitle:String) {
+            self.pickText = pickerText
+            self.addText = addText
+            self.addAlertTitle = addAlertTitle
+            self.addBtnTitle = addBtnTitle
+            self.cancelBtnTitle = cancelBtnTitle
+        }
         var pickText:String = "Tap on a line to select."
         var addText:String = "Tap '+' to add a new entry."
         var addAlertTitle:String = "Add new item"
