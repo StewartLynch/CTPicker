@@ -19,7 +19,12 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     weak var delegate:CTPickerChildDelegate?
     var items:[String] = []
     var ctStrings:CTPicker.CTStrings?
-    var pickerStrings:CTPicker.CTStrings = CTPicker.CTStrings()
+
+    var pickerStrings:CTPicker.CTStrings = CTPicker.CTStrings(pickText: "Tap on a line to select.",
+                                                              addText: "Tap '+' to add a new entry.",
+                                                              addAlertTitle: "Add new item",
+                                                              addBtnTitle: "Add",
+                                                              cancelBtnTitle: "Cancel")
     // Optional Navbar Colors
     var navBarBarTintColor:UIColor?
     var navBarTintColor:UIColor?
