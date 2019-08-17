@@ -194,6 +194,13 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     }
     
     @objc func addItem() {
+        // Check to see if item in search field exists already
+        if let textToCheck = txtSearchBar.text {
+            if items.contains(textToCheck) {
+                // it does so do not add a new one. Just set the field
+                self.delegate?.setValue(value: textToCheck, new: false)
+            }
+        }
         let ac = UIAlertController(title: pickerStrings.addAlertTitle, message: nil, preferredStyle: .alert)
         ac.addTextField(configurationHandler: {(textField: UITextField!) in
             textField.keyboardType = UIKeyboardType.default

@@ -1,13 +1,21 @@
 # CTPicker
+[![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat)](https://developer.apple.com/iphone/index.action)[![](http://img.shields.io/badge/language-Swift-brightgreen.svg?color=orange)](https://developer.apple.com/swift)![](https://img.shields.io/github/tag/stewartlynch/CTPicker?style=flat))![](https://img.shields.io/github/last-commit/StewartLynch/CTPicker)
+
 ### What is this?
 
-If you wish to limit your user to picking from an array of strings, then a TableView or UIPicker may meet your needs.  However, as the number of entries grow, these controls may not be very efficient.  In this solution I present the user with a tableView of all options but with a search text field that will filter as you type to zoom in on the preferred value.  If the value is not available, there is also the optional "add" button to allow your users to add to the data source.
+![CTPicker](CTPicker.gif)
 
+If you wish to limit your user to picking from an array of strings, then a TableView or UIPicker may meet your needs.  However, as the number of entries grow, these controls may not be very efficient.  With `CTPicker`  I present the user with a tableView of all options but with a search text field that will filter as you type to zoom in on the preferred value.  If the value is not available, there is also the optional "add" button to allow your users to add to the data source.
+
+### Requirements
+- iOS 12.0+
+- Xcode 11.0+
+- Swift 5.0+
 ### YouTube Video
 
 Watch this video to see installation and use as described below.
 
-TODO: Create video
+**TODO**: Create video
 
 ### Installation
 
@@ -24,7 +32,7 @@ Setting up to use this solution on one or more of your UITextFields is straight 
 
 ##### Step 1 - Import CTPicker
 
-In the ViewController where you are going to implement CTPicker on your TextFields, import CTPicker.
+In the ViewController where you are going to implement `CTPicker` on your TextFields, import CTPicker.
 
 ```swift
 import CTPicker
@@ -32,9 +40,9 @@ import CTPicker
 
 ##### Step 2- ViewController Delegates 
 
-The ViewControllers containing your UITextFields must conform to **UITextFieldDelegate** and to **CTPickerDelegate**
+The ViewControllers containing your UITextFields must conform to `UITextFieldDelegate` and to `CTPickerDelegate`
 
-The conformance to CTPickerDelegate will require the addition of the **setTextField** delegate function.  More about this below.
+The conformance to CTPickerDelegate will require the addition of the `setTextField` delegate function.  See step 6 below.
 
 ```swift
     func setField(value: String, type:CTPickerType, selectedTextField: UITextField, new: Bool) {
@@ -64,7 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CTPickerDelegate {
 
 ##### Step 5 - Create your UITextFields
 
-In your ViewController, create your UITextFields either programmatically or using Interface Builder.  In each case, the UITextField delegate must be assigned to the ViewController.
+In your ViewController, create your UITextFields either programmatically or using Interface Builder.  In each case, the assign the ViewController as the UITextField delegate.
 
 ```swift
 // Must assign the text fields as the UITextFieldDelegates
@@ -75,15 +83,15 @@ In your ViewController, create your UITextFields either programmatically or usin
 
 ##### Step 6 - Implement textFieldDidBeginEditing
 
-Now, when your users tap into the field you want to present the list of values.  The **CTPicker.presentCTPicker** function must be called within the **textFieldDidBeginEditing:** function which is a UITextField delegate function.
+Now, when your users tap into the field you want to present the list of values.  The `CTPicker.presentCTPicker` function must be called within the `textFieldDidBeginEditing`: function which is a UITextField delegate function.
 
-No matter what optional style values you choose, you **always** pass ***self*** as the first parameter and ***textField*** as the second one.
+No matter what optional style values you choose, you **always** pass `self` as the first parameter and `textField` as the second one.
 
-The third parameter is the array of strings.  In example shown, I am passing varietyArray, countryArray and wineryArray.
+The third parameter is the array of strings.  In the example shown, I am passing `varietyArray`, `countryArray` and `wineryArray`.
 
 The remaining parameters (except for the last one) are optional and used if you wish to custom style the navigation bar on the picker and the tint color of the action buttons for the 'add' alert or if you wish to have your own custom strings used.  You can choose to include any number of these optional parameters, or none at all.  See the **Optional parameters** section below for more detail.
 
-The final parameter, isAddEnabled, defaults to **false**, which means the array is Read Only.  If you wish to allow your users to add to the list of options, include ***isAddEnabled: true*** as the final parameter.
+The final parameter, `isAddEnabled`, defaults to **false**, which means the array is **Read Only**.  If you wish to allow your users to add to the list of options, include `isAddEnabled: true` as the final parameter.
 
 Here is an example.
 
@@ -140,7 +148,7 @@ func setField(value: String, selectedTextField: UITextField, new: Bool) {
 
 ### Optional Parameters
 
-As mentioned above there are additional optional parameters that you can pass to the **presentCTPicker** function.  
+As mentioned above there are additional optional parameters that you can pass to the `presentCTPicker` function.  
 
 ##### Custom Strings
 
@@ -178,7 +186,7 @@ These three colors are:
 
 To pass these on to the function, you can add these as the 5th, 6th and 7th parameters.  Each one is optional so you may choose to leave one or more out.
 
-Here is an example of a CTPicker.presentCTPicker call using all options.
+Here is an example of a `CTPicker.presentCTPicker` call using all options.
 ```swift
  let ctStrings = CTPicker.CTStrings(pickText: "Lorem ipsum dolor sit amet.",
                                     addText: "Consectetur adipiscing elit.",
