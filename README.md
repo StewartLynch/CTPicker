@@ -15,7 +15,7 @@ If you wish to limit your user to picking from an array of strings, then a Table
 
 Watch this video to see installation and use as described below.
 
-**TODO**: Create video
+https://www.youtube.com/watch?v=Ij3YfnEJzG0
 
 ### Installation
 
