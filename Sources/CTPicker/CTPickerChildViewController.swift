@@ -116,7 +116,6 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
         navigationBarAppearance.isTranslucent = false
         if let navBarTintColor = navBarTintColor {
             navigationBarAppearance.tintColor = navBarTintColor
-            navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: navBarTintColor]
         }
         if let navBarBarTintColor = navBarBarTintColor {
             navigationBarAppearance.barTintColor = navBarBarTintColor
