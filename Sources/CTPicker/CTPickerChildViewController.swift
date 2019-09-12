@@ -196,32 +196,35 @@ public class CTPickerChildViewController: UIViewController, UITableViewDelegate,
     @objc func addItem() {
         // Check to see if item in search field exists already
         if let textToCheck = txtSearchBar.text {
-            if items.contains(textToCheck) {
+           let textToCheckTrimmed = textToCheck.trimmingCharacters(in: .whitespacesAndNewlines)
+            print(textToCheckTrimmed)
+            if originalItemsList.contains(textToCheckTrimmed) {
                 // it does so do not add a new one. Just set the field
-                self.delegate?.setValue(value: textToCheck, new: false)
+                self.delegate?.setValue(value: textToCheckTrimmed, new: false)
+            } else {
+                let ac = UIAlertController(title: pickerStrings.addAlertTitle, message: nil, preferredStyle: .alert)
+                ac.addTextField(configurationHandler: {(textField: UITextField!) in
+                    textField.keyboardType = UIKeyboardType.default
+                    textField.autocapitalizationType = .words
+                    if self.txtSearchBar.text != "" {
+                        textField.text = self.txtSearchBar.text
+                    }
+                })
+                
+                let submitAction = UIAlertAction(title: pickerStrings.addBtnTitle, style: .default) { [unowned ac] _ in
+                    let answer = ac.textFields![0]
+                    if answer.text != "" {
+                        self.delegate?.setValue(value: answer.text!, new: true)
+                    }
+                }
+                ac.addAction(UIAlertAction(title: pickerStrings.cancelBtnTitle, style: .cancel))
+                ac.addAction(submitAction)
+                if let actionTintColor = actionTintColor {
+                    ac.view.tintColor = actionTintColor
+                }
+                present(ac, animated: true)
             }
         }
-        let ac = UIAlertController(title: pickerStrings.addAlertTitle, message: nil, preferredStyle: .alert)
-        ac.addTextField(configurationHandler: {(textField: UITextField!) in
-            textField.keyboardType = UIKeyboardType.default
-            textField.autocapitalizationType = .words
-            if self.txtSearchBar.text != "" {
-                textField.text = self.txtSearchBar.text
-            }
-        })
-        
-        let submitAction = UIAlertAction(title: pickerStrings.addBtnTitle, style: .default) { [unowned ac] _ in
-            let answer = ac.textFields![0]
-            if answer.text != "" {
-                self.delegate?.setValue(value: answer.text!, new: true)
-            }
-        }
-        ac.addAction(UIAlertAction(title: pickerStrings.cancelBtnTitle, style: .cancel))
-        ac.addAction(submitAction)
-        if let actionTintColor = actionTintColor {
-            ac.view.tintColor = actionTintColor
-        }
-        present(ac, animated: true)
         
     }
     
